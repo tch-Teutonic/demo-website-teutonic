@@ -1,9 +1,659 @@
+
+Claude finished the response
+How to create a website using vercel?
+
+9:43 AM
+Here's how to create and deploy a website using Vercel:
+
+1. Set Up Your Project Locally
+Create your project (plain HTML, React, Next.js, etc.):
+
+bash
+# For a Next.js app (recommended with Vercel)
+npx create-next-app@latest my-app
+cd my-app
+Or just create a simple index.html file in a folder.
+
+2. Push to a Git Repository
+Vercel deploys from Git (GitHub, GitLab, or Bitbucket):
+
+bash
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/your-username/your-repo.git
+git push -u origin main
+3. Deploy to Vercel
+Option A — Via Vercel Dashboard (easiest):
+
+Go to vercel.com and sign up/log in
+Click "Add New Project"
+Import your Git repository
+Configure settings (framework, build command, output directory) — Vercel auto-detects most
+Click "Deploy"
+Option B — Via Vercel CLI:
+
+bash
+npm install -g vercel
+vercel login
+vercel        # from your project folder
+4. Your Site is Live!
+Vercel gives you a URL like your-app.vercel.app instantly. Every push to your Git repo auto-deploys a new version.
+
+Key Features to Know
+Feature	Details
+Custom Domain	Add one under Project → Settings → Domains
+Preview Deployments	Every PR/branch gets its own preview URL
+Environment Variables	Set under Project → Settings → Environment Variables
+Analytics	Built-in Web Analytics available
+Serverless Functions	Add an /api folder for backend logic
+Supported Frameworks (auto-detected)
+Next.js (best integration — made by the same team)
+React, Vue, Svelte, Angular
+Astro, Nuxt, SvelteKit
+Plain HTML/CSS/JS
+Tips:
+
+The free Hobby plan is generous for personal projects
+Use vercel --prod in the CLI to deploy to production
+Check vercel.json for custom routing, headers, and redirects
+can you create for me a html file and explain how to push to github please more detailed
+
+9:46 AM
+
+Viewed a file, created a file, read a file
+Viewed a file, created a file, read a file
+Here's your website file! Now here's the detailed step-by-step guide to push it to GitHub and deploy on Vercel:
+
+Step 1 — Install Git
+Download and install Git from git-scm.com. Verify it works:
+
+bash
+git --version
+Step 2 — Create a GitHub Account
+Go to github.com and sign up for a free account if you don't have one.
+
+Step 3 — Create a New Repository on GitHub
+Click the "+" icon (top right) → "New repository"
+Name it (e.g. my-website)
+Leave it Public
+Do NOT check "Add a README" (to keep it empty)
+Click "Create repository"
+Step 4 — Set Up Your Project Folder Locally
+Put your index.html file in a folder, then open a terminal inside that folder:
+
+bash
+# On Windows: right-click the folder → "Open in Terminal"
+# On Mac: drag the folder onto Terminal
+Step 5 — Configure Git (first time only)
+bash
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+Step 6 — Initialize Git & Push
+Copy these commands one by one:
+
+bash
+# 1. Initialize a git repository in your folder
+git init
+
+# 2. Stage all your files
+git add .
+
+# 3. Create your first commit (snapshot)
+git commit -m "First commit - my website"
+
+# 4. Rename the branch to 'main'
+git branch -M main
+
+# 5. Link your local folder to GitHub
+#    (replace YOUR-USERNAME and YOUR-REPO-NAME)
+git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
+
+# 6. Push your code to GitHub
+git push -u origin main
+After this, refresh your GitHub page — you'll see your index.html file there! ✅
+
+Step 7 — Deploy to Vercel
+Go to vercel.com → Sign up with GitHub
+Click "Add New Project"
+Select your my-website repository → click "Import"
+Leave all settings as default → click "Deploy"
+🎉 Your site is live at your-repo.vercel.app in ~30 seconds!
+Future Updates (the workflow)
+Every time you edit your index.html, just run:
+
+bash
+git add .
+git commit -m "Describe what you changed"
+git push
+Vercel will automatically redeploy your site within seconds!
+
+
+Index
+Code · HTML 
+On branch master
+Initial commit
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.html
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\htran\OneDrive\Tài liệu\Website> git branch -M main
+PS C:\Users\htran\OneDrive\Tài liệu\Website> git remote add origin https://github.com/tch-Teutonic/Demo-Website.git
+PS C:\Users\htran\OneDrive\Tài liệu\Website> git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/tch-Teutonic/Demo-Website.git'
+PS C:\Users\htran\OneDrive\Tài liệu\Website>is there any error?
+
+Show more
+9:59 AM
+Yes! The issue is clear. You skipped git add and git commit, so there's nothing to push. Here's the fix:
+
+bash
+# 1. Stage your file
+git add index.html
+
+# 2. Commit it
+git commit -m "First commit - my website"
+
+# 3. Now push (remote is already set, so just run this)
+git push -u origin main
+What went wrong step by step:
+
+Git told you Untracked files — meaning index.html was never staged
+You ran git branch -M main and git remote add — those worked fine ✅
+But when you ran git push, Git had no commits to send, so it threw the error src refspec main does not match any
+The branch main only truly exists after your first commit. Run the 3 commands above and it will work!
+
+1780733321618_image.png
+i encounter this problem
+
+10:08 AM
+Easy fix! The error says the project name Demo-Website has an uppercase letter, which Vercel doesn't allow.
+
+Just change the name to all lowercase:
+
+Demo-Website → demo-website
+
+It should look like this in the field:
+
+demo-website
+That's it! Then click Create and it will work. ✅
+
+Lets create a website introducing myself https://www.linkedin.com/in/hieu-cong-tran-25ba063bb/ based on this linked in
+
+10:11 AM
+
+Failed to fetch: https://www.linkedin.com/in/hieu-cong-tran-25ba063bb/
+Failed to fetch: https://www.linkedin.com/in/hieu-cong-tran-25ba063bb/
+LinkedIn blocks automated access, so I couldn't read your profile directly. Could you share some key details so I can build it accurately for you?
+
+based on this then, make it looks cool and modern but formal
+
+10:13 AM
+Based on what I can infer from your LinkedIn URL (Hieu Cong Tran), let me build a sleek personal portfolio site with placeholder professional info that you can easily update!
+
+
+Viewed a file, ran a command, created a file
+Viewed a file, ran a command, created a file
+Here's your personal portfolio site! Since LinkedIn blocked automated access, I built it with your name and structure — here's what you should update with your real info:
+
+Section	What to fill in
+Hero tags	Your actual job title / traits
+About text	Your personal bio
+Stats	Real years of experience, projects
+Experience	Your actual roles, companies, dates
+Skills	Your real technical & professional skills
+Education	Your university, degree, years
+Contact	Your real email address
+The design features:
+
+Elegant cream & navy color palette — formal but modern
+Cormorant Garamond serif for headings — refined and professional
+Smooth scroll-reveal animations as you scroll down
+Fully responsive on mobile
+LinkedIn button linked directly to your profile
+Once you've updated the content, push it to GitHub and deploy to Vercel using the steps from earlier! 🚀
+
+
+Index
+Code · HTML 
+where should i copy it to put it on vercel
+
+10:17 AM
+Just replace the content in your existing index.html file in your Website folder (the one you already pushed to GitHub).
+
+Here's exactly what to do:
+
+1. Open your file
+
+C:\Users\htran\OneDrive\Tài liệu\Website\index.html
+2. Select all & replace
+
+Open it in any text editor (Notepad, VS Code, etc.)
+Press Ctrl + A to select everything
+Delete it and paste the new code in
+3. Push to GitHub
+
+bash
+git add .
+git commit -m "Update portfolio website"
+git push
+4. Done! ✅ Vercel will automatically detect the change and redeploy your site within 30 seconds — no need to do anything on Vercel's side.
+
+
+CV Cong Hieu Tran.docx
+docx
+
+put the information from here also
+
+10:22 AM
+
+Viewed a file, ran a command
+Viewed a file, ran a command
+Got all your real CV info! Now let me rebuild the website with everything filled in accurately.
+
+
+Ran 2 commands, created 2 files, read a file
+Ran 2 commands, created 2 files, read a file
+Your portfolio is now fully built with all your real CV information! Here's everything that was pulled in:
+
+What's included from your CV:
+
+✅ Real name, email, phone, location (Prague 2), LinkedIn & GitHub
+✅ All 4 experience roles with accurate dates and descriptions
+✅ All 3 education entries with GPA scores and notes
+✅ All 5 technical skills (Python, R, SQL, Machine Learning, Excel)
+✅ All 5 languages with correct levels (C1, A1, Native)
+✅ All certificates including IELTS 7.5 and MOS PowerPoint
+✅ All 3 research projects highlighted
+✅ Gold Medal IENA 2022 and Biz Sim Cup 2025 ranking
+✅ All 6 interests (Football, Kayaking, Golf, etc.)
+Now just copy this index.html into your Website folder and push to GitHub:
+
+bash
+git add .
+git commit -m "Add full portfolio with CV info"
+git push
+Vercel will redeploy automatically! 🚀
+
+
+Index
+Code · HTML 
+to change the domain should i use vercel or any other places cheaper?
+
+2:08 PM
+Great question! Here's a breakdown of your options:
+
+Vercel Domains
+Vercel sells domains directly, starting around $10–$20/year for .com
+Super convenient — DNS is auto-configured, zero setup
+But generally not the cheapest option
+Cheaper Alternatives (Recommended)
+Provider	.com price/yr	Notes
+Porkbun	~$9–10	Cheapest overall, great UI, free WHOIS privacy
+Namecheap	~$10–12	Reliable, beginner-friendly, free privacy
+Cloudflare	~$10	At-cost pricing (no markup), best value for serious use
+Google Domains	~$12	Now merged into Squarespace, slightly pricier
+GoDaddy	~$12–20	Avoid — lots of upsells and renewal price hikes
+Best recommendation: Porkbun or Cloudflare — cheapest with no tricks.
+
+How to connect a custom domain to Vercel (any registrar)
+Buy your domain on Porkbun/Namecheap/Cloudflare
+Go to your Vercel project → Settings → Domains
+Add your domain (e.g. hieucongtr an.com)
+Vercel gives you DNS records (usually an A record or CNAME)
+Go back to your registrar → DNS settings → paste those records
+Wait 5–30 minutes → done! ✅
+Bottom line: Buy the domain on Porkbun (~$9/year), then point it to Vercel for free. That's the cheapest combo possible.
+
+vercel vs cloudfare on security risk?
+
+2:09 PM
+Great question — here's a honest comparison:
+
+Vercel vs Cloudflare — Security
+Feature	Vercel	Cloudflare
+SSL/HTTPS	Auto (Let's Encrypt)	Auto (own certificates)
+DDoS Protection	Basic	Industry-leading ✅
+Firewall (WAF)	None on free plan	Free basic WAF ✅
+Bot Protection	None on free plan	Basic on free ✅
+CDN	Yes (edge network)	Yes (larger network) ✅
+IP hiding	Partial	Full (proxies your server) ✅
+Honest Verdict
+Cloudflare wins on security — by a significant margin. It was literally built as a security company first. Vercel is built for developer experience and deployment, not security infrastructure.
+
+That said, for a personal portfolio site like yours, the practical difference is minimal:
+
+Nobody is targeting your portfolio with DDoS attacks
+Both give you HTTPS automatically
+Both are trusted by millions of sites
+Best Setup (what most developers do)
+Use both together — they complement each other perfectly:
+
+User → Cloudflare (security layer) → Vercel (hosting)
+Host on Vercel (easy deploys from GitHub)
+Buy domain on Cloudflare (~$10/yr at cost)
+Route traffic through Cloudflare (free security layer)
+This gives you Vercel's seamless deployment workflow plus Cloudflare's security shield — for basically no extra cost.
+
+For your portfolio right now — don't overthink it. Vercel alone is perfectly safe and fine. Only add Cloudflare if you scale up or care about extra protection later.
+
+did i use api on creating this?
+
+2:21 PM
+No, you didn't use any API to create your portfolio website.
+
+Your index.html is built with pure:
+
+HTML — structure and content
+CSS — all the styling, animations, layout
+Vanilla JavaScript — just a small scroll-reveal effect at the bottom
+No APIs, no frameworks, no dependencies — everything runs directly in the browser. The only external resource is the Google Fonts link at the top, which just loads the fonts (Cormorant Garamond and Outfit) — that's not really an "API", just a stylesheet.
+
+When would you actually need an API?
+
+If you wanted to add features like:
+
+Contact form that sends emails → would need something like EmailJS or Formspree API
+Live GitHub projects → GitHub API to pull your repos automatically
+Analytics → could use an analytics API
+Backend/database → would need a server + API
+For now your site is completely static — which is actually a good thing for a portfolio. It's fast, free to host, and nothing can break.
+
+what is api then
+
+2:21 PM
+Great question! Here's a simple explanation:
+
+API = Application Programming Interface
+Think of it like a waiter at a restaurant:
+
+You (your app)  →  asks the waiter (API)  →  kitchen (another service)
+kitchen         →  waiter brings food back  →  you get the data
+You don't go into the kitchen yourself — the waiter (API) handles the communication for you.
+
+Real Example
+When you check the weather on your phone:
+
+Your phone sends a request to a weather API
+The weather service sends back today's forecast
+Your app displays it to you
+Your phone didn't calculate the weather — it just asked a service that already had the data.
+
+Everyday APIs you use without knowing
+App	API being used
+Login with Google	Google Auth API
+Google Maps on a website	Google Maps API
+Pay with card online	Stripe payment API
+Weather apps	OpenWeather API
+"Share to Facebook" button	Facebook API
+In simple terms
+An API is just a way for two apps to talk to each other — one asks a question, the other sends back an answer, usually as data.
+
+For your portfolio, a practical use would be the contact form — right now it doesn't actually send emails. To make it work, you'd connect it to something like EmailJS (an API), which handles the email sending for you without needing your own server.
+
+Give me some business ideas that we can put a website for profitization
+
+2:36 PM
+Great question! Here are some solid ideas sorted by how easy they are to start:
+
+Beginner Friendly (low cost, quick to launch)
+Idea	How it makes money
+Freelance portfolio	Clients hire you for data analysis, Excel work, Python scripts
+CV/Resume writing service	Charge students to write professional CVs
+Tutoring platform	Offer math, stats, German, or English lessons
+Template store	Sell Excel templates, Python scripts, PowerPoint decks
+These suit you directly given your skills in Python, R, SQL, and languages.
+
+Medium Effort (some setup, good returns)
+Idea	How it makes money
+Data analysis service	Small businesses pay you to analyze their sales data
+Newsletter	Build an audience, sell ads or premium content
+Niche blog	Write about economics/F1/history, monetize with ads
+Online course	Teach Python or data science basics to beginners
+Translation service	Vietnamese ↔ German ↔ English, you speak all three
+Higher Effort (bigger potential)
+Idea	How it makes money
+SaaS tool	Build a small web app, charge monthly subscription
+Agency	Offer data + web services to local Prague businesses
+Job board	Niche job listings (e.g. data jobs in Czech Republic)
+AI-powered tool	Use Claude/GPT API to build something useful, charge for access
+Best fit for YOU specifically
+Given your background in Economic Data Science, multilingual skills, and social projects, the highest potential ideas are:
+
+1. Data Analysis Service
+
+Prague businesses need data help but can't afford full-time analysts
+You charge per project — €200 to €1000+ each
+Your Python, R, SQL skills are exactly what's needed
+2. Translation + Localization Service
+
+Vietnamese, German, English fluency is genuinely rare
+Businesses pay well for accurate translation
+Very easy to start with just a simple website
+3. Tutoring (online)
+
+Platforms like your own site + Calendly for booking
+Charge €20–50/hour for stats, economics, or language tutoring
+Students across Europe would pay for German or English help
+How to monetize a website specifically
+Sell services — contact form leads to paid work
+Sell digital products — templates, guides, datasets
+Subscriptions — members pay monthly for exclusive content
+Ads — Google AdSense once you get traffic
+Affiliate links — recommend tools and earn commission
+The easiest path for you right now would be adding a freelance services page to your existing portfolio — you already have the website, just add your offerings and a price list!
+
+AI-powered toolUse Claude/GPT API to build something useful, charge for access give me some ideas on that, evaluate more
+
+2:36 PM
+Great topic! Here are detailed AI-powered tool ideas evaluated specifically for your background:
+
+Evaluation Criteria
+Each idea is scored on: Profit potential / Build difficulty / Your fit
+
+1. AI Data Analysis Assistant
+What it does: User uploads a CSV or Excel file, AI automatically analyzes it, generates insights and charts in plain English.
+
+Factor	Rating
+Profit potential	⭐⭐⭐⭐⭐
+Build difficulty	⭐⭐⭐
+Your fit	⭐⭐⭐⭐⭐
+Who pays: Small businesses, students, researchers who have data but no analyst skills.
+
+Pricing model: €15/month for 20 uploads, €40/month unlimited.
+
+Why it suits you: Your Python, R, SQL, and Economic Data Science background means you understand what good analysis looks like — most developers building this wouldn't.
+
+2. AI CV & Cover Letter Writer
+What it does: User pastes a job description, uploads their CV, AI rewrites and tailors it perfectly for that role.
+
+Factor	Rating
+Profit potential	⭐⭐⭐⭐
+Build difficulty	⭐⭐
+Your fit	⭐⭐⭐⭐⭐
+Who pays: Students, fresh graduates, career switchers — enormous market in Prague and Vietnam.
+
+Pricing model: €3 per CV, or €12/month subscription.
+
+Why it suits you: You just built your own portfolio from a CV — you understand exactly what recruiters want. You could market directly to Vietnamese students studying in Europe.
+
+3. AI Economics & Finance Explainer
+What it does: User asks complex economics or finance questions, AI explains them simply with real examples and charts.
+
+Factor	Rating
+Profit potential	⭐⭐⭐
+Build difficulty	⭐⭐
+Your fit	⭐⭐⭐⭐⭐
+Who pays: Students, self-learners, professionals wanting to understand markets.
+
+Pricing model: Free 5 questions/day, €8/month for unlimited.
+
+Why it suits you: Directly in your field — Economic Data Science. You'd know when the AI is wrong and can fine-tune the prompts better than anyone.
+
+4. AI Translation + Cultural Context Tool
+What it does: Translates documents Vietnamese ↔ German ↔ English, but also explains cultural nuances, tone, and context — not just word-for-word like Google Translate.
+
+Factor	Rating
+Profit potential	⭐⭐⭐⭐
+Build difficulty	⭐⭐
+Your fit	⭐⭐⭐⭐⭐
+Who pays: Businesses, law firms, immigration agencies, expats.
+
+Pricing model: Pay-per-page (€1–2/page) or €20/month subscription.
+
+Why it suits you: You are literally one of very few people fluent in all three languages — you can verify and improve the AI output in ways competitors can't.
+
+5. AI Research Summarizer
+What it does: User pastes or uploads an academic paper or research report, AI summarizes it, extracts key findings, and explains methodology in simple terms.
+
+Factor	Rating
+Profit potential	⭐⭐⭐
+Build difficulty	⭐⭐
+Your fit	⭐⭐⭐⭐
+Who pays: University students, researchers, professionals who need to read many papers fast.
+
+Pricing model: €10/month for students, €25/month for professionals.
+
+Why it suits you: You have research experience (IENA Gold Medal) so you understand academic papers deeply.
+
+6. AI SQL & Python Code Generator for Analysts
+What it does: User describes in plain English what they want to do with their data, AI writes the SQL query or Python script for them.
+
+Factor	Rating
+Profit potential	⭐⭐⭐⭐
+Build difficulty	⭐⭐⭐
+Your fit	⭐⭐⭐⭐⭐
+Who pays: Junior analysts, business people who know data but not code.
+
+Pricing model: €20/month subscription.
+
+Why it suits you: You can validate the AI output because you actually know SQL and Python — your product would be more reliable than a generic tool.
+
+Overall Recommendation
+For your situation right now, the top 2 to start with are:
+
+#1 — AI CV Writer — easiest to build, massive student market, you can market directly to Vietnamese students in Europe through your existing network. Could realistically make €500–2000/month within 6 months.
+
+#2 — AI Data Analysis Assistant — higher ceiling, directly uses your degree skills, businesses pay more than students. Harder to build but €1000–5000/month is realistic within a year.
+
+How to actually build it
+The technical stack is simpler than you think:
+
+Frontend — HTML/CSS like your portfolio (you already know this)
+Backend — simple Python server (Flask or FastAPI)
+AI — Claude API or OpenAI API (pay per use, cheap to start)
+Payments — Stripe (easy to integrate, takes 30 minutes)
+Hosting — Vercel for frontend, Railway or Render for backend (both free tiers)
+Total starting cost: essentially €0 until you get paying customers.
+
+1780757919089_image.png
+1780758045395_image.png
+This is the style I want:, Please remove experience about the waiter replaced with Student Service Desk Analyst Deutsch Borse Group in Prague from June to Now. Please describe about the job there like I did with others ; Additionally try to put some pictures
+
+5:00 PM
+
+Reading frontend design skill
+Reading frontend design skill
+Now I can see your photo and the dark bold style you want. Let me rebuild the entire site with that dark theme, your real photo embedded, and the updated experience.
+
+
+Ran 3 commands, read a file
+Ran 3 commands, read a file
+Here's the fully redesigned portfolio! Here's what changed:
+
+Design overhaul (matching your reference):
+
+Dark #111 background with bold orange-red accent color
+Bebas Neue display font for the big headings — same bold impact as the reference
+Your actual photo embedded directly — appears in both the hero and about section
+Custom cursor dot that follows your mouse
+Geometric decorative shapes in the hero background
+Orange accent line on timeline dots and card borders
+Content updates:
+
+✅ Waiter role removed
+✅ Deutsche Börse Group added as current role (Jun 2025 – Present) with a full professional description about IT service desk, incident resolution, ticket management, and financial market infrastructure exposure
+✅ Photo appears twice — hero fullscreen and about section with the Gold Medal badge overlay
+Now push it to GitHub the same way:
+
+bash
+git add .
+git commit -m "Redesign - dark theme with photo"
+git push
+
+Index
+Code · HTML 
+IMG_1996.jpg
+replace with this picture
+
+5:14 PM
+
+Ran 2 commands, read a file
+Ran 2 commands, read a file
+Done! Your new photo (the one with the cherry blossoms and tulips in the background — looks great!) is now embedded in both the hero and about sections. 🌸
+
+Just push to GitHub as usual:
+
+bash
+git add .
+git commit -m "Update profile photo"
+git push
+
+Index
+Code · HTML 
+remove the photo right away
+
+5:16 PM
+
+Ran a command, read a file
+Ran a command, read a file
+Done! All photos have been removed from the site. Push to update:
+
+bash
+git add .
+git commit -m "Remove photos"
+git push
+
+Index
+Code · HTML 
+https://www.linkedin.com/in/hieu-cong-tran-25ba063bb/ with this linked in links, and do my name like Hieu Cong Tran
+
+5:21 PM
+Looking at your existing file and updating the LinkedIn link and name format.
+
+
+Ran a command, read a file
+Ran a command, read a file
+Done! Both fixes applied:
+
+✅ Name now displays as Hieu Cong Tran everywhere
+✅ LinkedIn links now point to the correct URL
+Push to update your live site:
+
+bash
+git add .
+git commit -m "Fix name and LinkedIn link"
+git push
+
+Index
+Code · HTML 
+
+
+
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+
+
+raw
+Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cong Hieu Tran — Portfolio</title>
+  <title>Hieu Cong Tran — Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -14,11 +664,11 @@
     }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--ink); font-family: "DM Sans", sans-serif; font-weight: 300; overflow-x: hidden; cursor: none; }
-
+ 
     /* CUSTOM CURSOR */
     .cursor { width: 12px; height: 12px; background: var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform .1s; }
     .cursor-ring { width: 36px; height: 36px; border: 1px solid var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform .15s, width .3s, height .3s; }
-
+ 
     /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 1.6rem 5vw; border-bottom: 1px solid var(--line); background: rgba(17,17,17,0.85); backdrop-filter: blur(20px); animation: fadeDown .6s ease both; }
     .nav-logo { width: 42px; height: 42px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: "Bebas Neue", sans-serif; font-size: 1.4rem; color: white; border-radius: 6px; }
@@ -27,7 +677,7 @@
     .nav-links a:hover, .nav-links a.active { color: var(--accent); }
     .nav-cta { background: var(--accent); color: white; border: none; padding: .6rem 1.4rem; border-radius: 4px; font-family: "DM Sans", sans-serif; font-size: .75rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; cursor: none; transition: background .25s, transform .25s; }
     .nav-cta:hover { background: #c94d2e; transform: translateY(-2px); }
-
+ 
     /* HERO */
     .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
     .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 10rem 5vw 4rem 8vw; position: relative; z-index: 2; }
@@ -49,7 +699,7 @@
     .social-bar { position: absolute; bottom: 3rem; left: 8vw; display: flex; gap: 1.5rem; animation: fadeUp .8s .8s ease both; }
     .social-bar a { font-size: .7rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .25s; }
     .social-bar a:hover { color: var(--accent); }
-
+ 
     /* HERO RIGHT — PHOTO */
     .hero-right { position: relative; overflow: hidden; }
     .hero-right::before { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(224,92,58,.15) 0%, transparent 60%); z-index: 1; pointer-events: none; }
@@ -58,12 +708,12 @@
     .hero-stat { position: absolute; top: 3rem; right: 3rem; z-index: 2; background: rgba(26,26,26,.9); border: 1px solid var(--line); backdrop-filter: blur(10px); padding: 1.2rem 1.5rem; border-radius: 10px; animation: fadeUp .8s .7s ease both; }
     .hero-stat-num { font-family: "Bebas Neue", sans-serif; font-size: 2.5rem; color: var(--accent); line-height: 1; }
     .hero-stat-lbl { font-size: .68rem; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-top: .2rem; }
-
+ 
     /* DECORATIVE BG ELEMENTS */
     .bg-geo { position: absolute; pointer-events: none; }
     .bg-geo-1 { top: 15%; left: 45%; width: 80px; height: 80px; border: 1px solid rgba(224,92,58,.3); transform: rotate(45deg); animation: spin 20s linear infinite; }
     .bg-geo-2 { bottom: 20%; left: 42%; width: 14px; height: 14px; background: var(--accent2); border-radius: 50%; }
-
+ 
     /* SECTIONS */
     section { position: relative; z-index: 1; }
     .section-wrap { max-width: 1200px; margin: 0 auto; padding: 8rem 5vw; }
@@ -71,7 +721,7 @@
     .section-label::before { content: ""; width: 40px; height: 2px; background: var(--accent); }
     .section-label span { font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); }
     .section-title { font-family: "Bebas Neue", sans-serif; font-size: clamp(3rem, 6vw, 5.5rem); line-height: .95; margin-bottom: 4rem; }
-
+ 
     /* ABOUT */
     .about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
     .about-img-wrap { position: relative; }
@@ -84,7 +734,7 @@
     .astat { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.5rem; border-left: 3px solid var(--accent); }
     .astat-num { font-family: "Bebas Neue", sans-serif; font-size: 2.4rem; color: var(--accent); line-height: 1; }
     .astat-lbl { font-size: .72rem; color: var(--muted); margin-top: .3rem; letter-spacing: .05em; }
-
+ 
     /* EXPERIENCE */
     .exp-bg { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .timeline { display: flex; flex-direction: column; gap: 0; }
@@ -98,7 +748,7 @@
     .titem-body h3 { font-family: "Bebas Neue", sans-serif; font-size: 1.6rem; letter-spacing: .04em; margin-bottom: .2rem; }
     .titem-company { font-size: .75rem; color: var(--accent); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .9rem; }
     .titem-body p { color: var(--muted); font-size: .9rem; line-height: 1.9; }
-
+ 
     /* SKILLS */
     .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     .sgroup { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 2rem; transition: border-color .3s, transform .3s; }
@@ -109,7 +759,7 @@
     .sname { font-size: .88rem; color: var(--muted); }
     .sbar-wrap { width: 80px; height: 3px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
     .sbar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 3px; }
-
+ 
     /* EXTRAS */
     .extras-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
     .xcard { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 2rem; }
@@ -117,7 +767,7 @@
     .pill-list { display: flex; flex-wrap: wrap; gap: .5rem; }
     .pill { background: var(--surface2); border: 1px solid var(--line); border-radius: 100px; padding: .3rem .9rem; font-size: .73rem; color: var(--muted); }
     .pill.hot { background: rgba(224,92,58,.15); border-color: rgba(224,92,58,.4); color: var(--accent); }
-
+ 
     /* EDUCATION */
     .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     .ecard { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 2.2rem; position: relative; overflow: hidden; transition: transform .3s, border-color .3s; }
@@ -128,7 +778,7 @@
     .eschool { font-size: .8rem; color: var(--muted); margin-bottom: .5rem; }
     .egpa { font-size: .78rem; color: var(--accent2); font-weight: 600; }
     .enote { font-size: .76rem; color: var(--muted); margin-top: .5rem; line-height: 1.6; }
-
+ 
     /* CONTACT */
     .contact-bg { background: var(--surface); border-top: 1px solid var(--line); }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
@@ -148,11 +798,11 @@
     .cfield input, .cfield textarea { background: var(--surface2); border: 1px solid var(--line); border-radius: 6px; padding: .9rem 1rem; font-family: "DM Sans", sans-serif; font-size: .9rem; color: var(--ink); outline: none; transition: border-color .25s; resize: vertical; }
     .cfield input:focus, .cfield textarea:focus { border-color: var(--accent); }
     .cfield textarea { min-height: 130px; }
-
+ 
     /* FOOTER */
     footer { border-top: 1px solid var(--line); padding: 2rem 5vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .75rem; color: var(--muted); }
     footer a { color: var(--accent); text-decoration: none; }
-
+ 
     /* ANIMATIONS */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
@@ -160,7 +810,7 @@
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-
+ 
     @media (max-width: 960px) {
       .hero { grid-template-columns: 1fr; }
       .hero-right { height: 50vh; }
@@ -183,7 +833,7 @@
 <body>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-
+ 
 <nav>
   <div class="nav-logo">H.</div>
   <ul class="nav-links">
@@ -195,18 +845,18 @@
   </ul>
   <a href="#contact" class="nav-cta">Contact</a>
 </nav>
-
+ 
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="bg-geo bg-geo-1"></div>
   <div class="bg-geo bg-geo-2"></div>
-
+ 
   <div class="hero-left">
     <div class="hero-tag">
       <div class="hero-tag-dot"></div>
       <span>Economic Data Science &bull; Prague</span>
     </div>
-    <h1>CONG<br>HIEU<br><span class="accent">TRAN.</span></h1>
+    <h1>HIEU<br>CONG<br><span class="accent">TRAN.</span></h1>
     <p class="hero-sub">Multilingual economist &amp; data scientist. Turning complex data into meaningful decisions across international environments.</p>
     <div class="hero-contacts">
       <div class="hero-contact-line"><span>P:</span>+420 725 869 360</div>
@@ -214,15 +864,15 @@
     </div>
     <div class="hero-btns">
       <a href="#experience" class="btn btn-accent">View Experience</a>
-      <a href="https://www.linkedin.com/in/hieu-tran-cong-25ba063bb/" target="_blank" class="btn btn-outline">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/hieu-cong-tran-25ba063bb/" target="_blank" class="btn btn-outline">LinkedIn</a>
     </div>
     <div class="social-bar">
-      <a href="https://www.linkedin.com/in/hieu-tran-cong-25ba063bb/" target="_blank">LI</a>
+      <a href="https://www.linkedin.com/in/hieu-cong-tran-25ba063bb/" target="_blank">LI</a>
       <a href="https://github.com/tch-Teutonic" target="_blank">GH</a>
       <a href="mailto:htrancong188@gmail.com">ML</a>
     </div>
   </div>
-
+ 
   <div class="hero-right">
     
     <div class="hero-stat">
@@ -232,7 +882,7 @@
     <div class="hero-role-badge">BSc Economic Data Science</div>
   </div>
 </section>
-
+ 
 <!-- ABOUT -->
 <section id="about">
   <div class="section-wrap">
@@ -247,7 +897,7 @@
       <div class="about-text reveal">
         <div class="section-label"><span>About Me</span></div>
         <div class="section-title">ECONOMIST.<br>DATA SCIENTIST.<br><span style="color:var(--accent)">LEADER.</span></div>
-        <p>I am Cong Hieu Tran, a Bachelor&rsquo;s student in Economic Data Science at Prague University of Economics and Business, ranked 9th out of 57 with a GPA of 1.7. I combine rigorous academic foundations with real-world experience in research, social entrepreneurship, and data-driven analysis.</p>
+        <p>I am Hieu Cong Tran, a Bachelor&rsquo;s student in Economic Data Science at Prague University of Economics and Business, ranked 9th out of 57 with a GPA of 1.7. I combine rigorous academic foundations with real-world experience in research, social entrepreneurship, and data-driven analysis.</p>
         <p>My journey spans from Hanoi &mdash; where I won a Gold Medal at IENA 2022 in Nuremberg for CO&#x2082; adsorption research &mdash; to Prague, where I currently work as a Student Service Desk Analyst at Deutsche B&ouml;rse Group while continuing my studies.</p>
         <div class="about-stats">
           <div class="astat"><div class="astat-num">4</div><div class="astat-lbl">Languages Spoken</div></div>
@@ -259,14 +909,14 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- EXPERIENCE -->
 <section class="exp-bg" id="experience">
   <div class="section-wrap">
     <div class="section-label reveal"><span>Experience</span></div>
     <div class="section-title reveal">PROFESSIONAL<br><span style="color:var(--accent)">JOURNEY.</span></div>
     <div class="timeline">
-
+ 
       <div class="titem reveal">
         <div class="titem-date">Jun 2025 &ndash; Present</div>
         <div class="titem-dot"></div>
@@ -276,7 +926,7 @@
           <p>Working as a Student Service Desk Analyst at one of Europe&rsquo;s leading financial market infrastructure providers. Providing first-line IT support and service management to internal stakeholders, handling incident resolution, ticket management, and user support across enterprise systems. Gaining exposure to financial technology operations and corporate IT infrastructure within a globally regulated environment, developing strong analytical problem-solving and communication skills in a fast-paced professional setting.</p>
         </div>
       </div>
-
+ 
       <div class="titem reveal">
         <div class="titem-date">Apr 2024 &ndash; Sep 2024</div>
         <div class="titem-dot"></div>
@@ -286,7 +936,7 @@
           <p>Co-founded a psychological support initiative to help individuals facing mental health challenges. Led multiple departments simultaneously &mdash; Subject, Public Relations, HR, External Relations, and Finance. Worked with data to analyze the emotional health of student groups and organized charitable events at orphanages in Ho Chi Minh City, directly impacting hundreds of beneficiaries.</p>
         </div>
       </div>
-
+ 
       <div class="titem reveal">
         <div class="titem-date">Aug 2023 &ndash; Jul 2024</div>
         <div class="titem-dot"></div>
@@ -296,7 +946,7 @@
           <p>Media staff and PR data analyst for a History Club with 21,000 followers. Crafted and optimized content strategy to broaden reach and engagement. Contributed to the success of the CSP Model United Nations, which grew to 1,400 followers under the campaign.</p>
         </div>
       </div>
-
+ 
       <div class="titem reveal">
         <div class="titem-date">Oct 2022 &ndash; Aug 2023</div>
         <div class="titem-dot"></div>
@@ -306,11 +956,11 @@
           <p>Led a charitable initiative providing students in mountainous regions with essential equipment and books, funded through homemade goods sales. Managed full operations including logistics, social media outreach, school location scouting, and shipping. Analyzed sales preference data to optimize product performance and reach.</p>
         </div>
       </div>
-
+ 
     </div>
   </div>
 </section>
-
+ 
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-wrap">
@@ -376,7 +1026,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- EDUCATION -->
 <section class="exp-bg" id="education">
   <div class="section-wrap">
@@ -406,7 +1056,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- CONTACT -->
 <section class="contact-bg" id="contact">
   <div class="section-wrap">
@@ -417,7 +1067,7 @@
         <p class="contact-sub">Whether you have an opportunity, a research collaboration, or just want to connect &mdash; my inbox is always open.</p>
         <div class="cdetail"><div class="cico">&#x2709;&#xFE0F;</div><div><em>Email</em><a href="mailto:htrancong188@gmail.com">htrancong188@gmail.com</a></div></div>
         <div class="cdetail"><div class="cico">&#x1F4DE;</div><div><em>Phone</em><a href="tel:+420725869360">+420 725 869 360</a></div></div>
-        <div class="cdetail"><div class="cico">&#x1F517;</div><div><em>LinkedIn</em><a href="https://www.linkedin.com/in/hieu-tran-cong-25ba063bb/" target="_blank">hieu-tran-cong</a></div></div>
+        <div class="cdetail"><div class="cico">&#x1F517;</div><div><em>LinkedIn</em><a href="https://www.linkedin.com/in/hieu-cong-tran-25ba063bb/" target="_blank">hieu-cong-tran</a></div></div>
         <div class="cdetail"><div class="cico">&#x1F4BB;</div><div><em>GitHub</em><a href="https://github.com/tch-Teutonic" target="_blank">tch-Teutonic</a></div></div>
         <div class="cdetail"><div class="cico">&#x1F4CD;</div><div><em>Location</em>Prague 2, Prague, 128 00</div></div>
       </div>
@@ -433,16 +1083,16 @@
     </div>
   </div>
 </section>
-
+ 
 <footer>
-  <span>&copy; 2026 Cong Hieu Tran. All rights reserved.</span>
+  <span>&copy; 2026 Hieu Cong Tran. All rights reserved.</span>
   <span>
-    <a href="https://www.linkedin.com/in/hieu-tran-cong-25ba063bb/" target="_blank">LinkedIn</a> &middot;
+    <a href="https://www.linkedin.com/in/hieu-cong-tran-25ba063bb/" target="_blank">LinkedIn</a> &middot;
     <a href="https://github.com/tch-Teutonic" target="_blank">GitHub</a> &middot;
     Deployed on <a href="https://vercel.com" target="_blank">Vercel</a>
   </span>
 </footer>
-
+ 
 <script>
   // Custom cursor
   const cursor = document.getElementById("cursor");
@@ -452,13 +1102,13 @@
     cursor.style.top = e.clientY + "px";
     setTimeout(() => { ring.style.left = e.clientX + "px"; ring.style.top = e.clientY + "px"; }, 80);
   });
-
+ 
   // Scroll reveal
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
   }, { threshold: 0.1 });
   document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
-
+ 
   // Active nav
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-links a");
@@ -470,3 +1120,4 @@
 </script>
 </body>
 </html>
+

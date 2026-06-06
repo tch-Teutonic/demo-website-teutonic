@@ -4,259 +4,306 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cong Hieu Tran — Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #f5f3ef; --bg2: #edeae3; --ink: #1a1814; --ink2: #4a4740;
-      --muted: #8c8880; --accent: #1b3a5c; --accent2: #c8974a;
-      --line: rgba(26,24,20,0.12); --white: #ffffff;
+      --bg: #111111; --surface: #1a1a1a; --surface2: #222222;
+      --ink: #f0ede8; --muted: #888; --accent: #e05c3a; --accent2: #00c9a7;
+      --line: rgba(255,255,255,0.08);
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--ink); font-family: 'Outfit', sans-serif; font-weight: 300; overflow-x: hidden; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 5vw; border-bottom: 1px solid var(--line); background: rgba(245,243,239,0.9); backdrop-filter: blur(16px); animation: slideDown .7s ease both; }
-    .nav-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; letter-spacing: .06em; }
-    .nav-name span { color: var(--accent2); }
-    .nav-links { display: flex; gap: 2.4rem; list-style: none; }
-    .nav-links a { font-size: .75rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--ink2); text-decoration: none; position: relative; padding-bottom: 2px; transition: color .3s; }
-    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--accent2); transition: width .3s; }
-    .nav-links a:hover { color: var(--accent); }
-    .nav-links a:hover::after { width: 100%; }
-    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 8rem 5vw 4rem; gap: 4rem; }
-    .hero-left { animation: fadeUp .9s .2s ease both; }
-    .hero-eyebrow { display: flex; align-items: center; gap: .8rem; margin-bottom: 2rem; }
-    .hero-eyebrow-line { width: 40px; height: 1px; background: var(--accent2); }
-    .hero-eyebrow span { font-size: .72rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--accent2); }
-    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5.5vw, 5.2rem); font-weight: 300; line-height: 1.08; margin-bottom: .5rem; }
-    .hero h1 strong { font-weight: 700; display: block; }
-    .hero h1 em { font-style: italic; color: var(--accent); }
-    .hero-title { font-size: .85rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; border-left: 2px solid var(--accent2); padding-left: .9rem; }
-    .hero-desc { color: var(--ink2); line-height: 1.9; font-size: .97rem; max-width: 420px; margin-bottom: 2.5rem; }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn { padding: .82rem 2rem; border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: .8rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all .25s; border: none; display: inline-block; }
-    .btn-dark { background: var(--accent); color: var(--white); }
-    .btn-dark:hover { background: #142d47; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(27,58,92,.25); }
-    .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-    .hero-right { animation: fadeUp .9s .45s ease both; display: flex; justify-content: center; }
-    .profile-card { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 2.8rem 2.4rem; width: 100%; max-width: 360px; box-shadow: 0 24px 60px rgba(26,24,20,.08); position: relative; overflow: hidden; }
-    .profile-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
-    .profile-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: white; margin-bottom: 1.5rem; }
-    .profile-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; margin-bottom: .3rem; }
-    .profile-card .role { font-size: .75rem; color: var(--accent2); font-weight: 500; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.5rem; }
-    .profile-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.8rem; }
-    .tag { background: var(--bg2); border: 1px solid var(--line); border-radius: 100px; padding: .28rem .85rem; font-size: .7rem; font-weight: 500; color: var(--ink2); }
-    .profile-links { display: flex; flex-direction: column; gap: .65rem; }
-    .profile-link { display: flex; align-items: center; gap: .75rem; text-decoration: none; color: var(--ink2); font-size: .82rem; transition: color .2s; }
-    .profile-link:hover { color: var(--accent); }
-    .profile-link .icon { width: 30px; height: 30px; border-radius: 7px; background: var(--bg2); display: flex; align-items: center; justify-content: center; font-size: .85rem; flex-shrink: 0; }
+    body { background: var(--bg); color: var(--ink); font-family: "DM Sans", sans-serif; font-weight: 300; overflow-x: hidden; cursor: none; }
+
+    /* CUSTOM CURSOR */
+    .cursor { width: 12px; height: 12px; background: var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform .1s; }
+    .cursor-ring { width: 36px; height: 36px; border: 1px solid var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform .15s, width .3s, height .3s; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 1.6rem 5vw; border-bottom: 1px solid var(--line); background: rgba(17,17,17,0.85); backdrop-filter: blur(20px); animation: fadeDown .6s ease both; }
+    .nav-logo { width: 42px; height: 42px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: "Bebas Neue", sans-serif; font-size: 1.4rem; color: white; border-radius: 6px; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: .75rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .25s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .nav-cta { background: var(--accent); color: white; border: none; padding: .6rem 1.4rem; border-radius: 4px; font-family: "DM Sans", sans-serif; font-size: .75rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; cursor: none; transition: background .25s, transform .25s; }
+    .nav-cta:hover { background: #c94d2e; transform: translateY(-2px); }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 10rem 5vw 4rem 8vw; position: relative; z-index: 2; }
+    .hero-tag { display: flex; align-items: center; gap: .8rem; margin-bottom: 2rem; animation: fadeUp .8s .2s ease both; }
+    .hero-tag-dot { width: 8px; height: 8px; background: var(--accent2); border-radius: 50%; animation: pulse 2s infinite; }
+    .hero-tag span { font-size: .72rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--accent2); }
+    .hero h1 { font-family: "Bebas Neue", sans-serif; font-size: clamp(5rem, 9vw, 9rem); line-height: .95; letter-spacing: .02em; margin-bottom: 1.5rem; animation: fadeUp .8s .35s ease both; }
+    .hero h1 .accent { color: var(--accent); }
+    .hero-sub { font-size: 1rem; color: var(--muted); line-height: 1.8; max-width: 380px; margin-bottom: 3rem; animation: fadeUp .8s .5s ease both; }
+    .hero-contacts { display: flex; flex-direction: column; gap: .6rem; margin-bottom: 3rem; animation: fadeUp .8s .6s ease both; }
+    .hero-contact-line { font-size: .85rem; color: var(--muted); }
+    .hero-contact-line span { color: var(--accent); font-weight: 500; margin-right: .5rem; }
+    .hero-btns { display: flex; gap: 1rem; animation: fadeUp .8s .65s ease both; }
+    .btn { padding: .9rem 2.2rem; border-radius: 4px; font-family: "DM Sans", sans-serif; font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; cursor: none; transition: all .25s; display: inline-block; border: none; }
+    .btn-accent { background: var(--accent); color: white; }
+    .btn-accent:hover { background: #c94d2e; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(224,92,58,.35); }
+    .btn-outline { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,.2); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+    .social-bar { position: absolute; bottom: 3rem; left: 8vw; display: flex; gap: 1.5rem; animation: fadeUp .8s .8s ease both; }
+    .social-bar a { font-size: .7rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .25s; }
+    .social-bar a:hover { color: var(--accent); }
+
+    /* HERO RIGHT — PHOTO */
+    .hero-right { position: relative; overflow: hidden; }
+    .hero-right::before { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(224,92,58,.15) 0%, transparent 60%); z-index: 1; pointer-events: none; }
+    .hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(20%) contrast(1.05); display: block; }
+    .hero-role-badge { position: absolute; bottom: 3rem; right: 3rem; z-index: 2; background: var(--accent); color: white; padding: 1rem 1.5rem; border-radius: 8px; font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; animation: fadeUp .8s .9s ease both; }
+    .hero-stat { position: absolute; top: 3rem; right: 3rem; z-index: 2; background: rgba(26,26,26,.9); border: 1px solid var(--line); backdrop-filter: blur(10px); padding: 1.2rem 1.5rem; border-radius: 10px; animation: fadeUp .8s .7s ease both; }
+    .hero-stat-num { font-family: "Bebas Neue", sans-serif; font-size: 2.5rem; color: var(--accent); line-height: 1; }
+    .hero-stat-lbl { font-size: .68rem; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-top: .2rem; }
+
+    /* DECORATIVE BG ELEMENTS */
+    .bg-geo { position: absolute; pointer-events: none; }
+    .bg-geo-1 { top: 15%; left: 45%; width: 80px; height: 80px; border: 1px solid rgba(224,92,58,.3); transform: rotate(45deg); animation: spin 20s linear infinite; }
+    .bg-geo-2 { bottom: 20%; left: 42%; width: 14px; height: 14px; background: var(--accent2); border-radius: 50%; }
+
+    /* SECTIONS */
     section { position: relative; z-index: 1; }
-    .section-wrap { max-width: 1100px; margin: 0 auto; padding: 7rem 5vw; }
-    .section-header { margin-bottom: 4rem; }
-    .section-kicker { display: flex; align-items: center; gap: .8rem; margin-bottom: 1rem; }
-    .section-kicker span { font-size: .72rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--accent2); }
-    .section-kicker::after { content: ''; flex: 1; height: 1px; background: var(--line); }
-    .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; }
-    .section-header h2 strong { font-weight: 700; }
-    .about-bg { background: var(--bg2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
-    .about-text p { color: var(--ink2); line-height: 2; font-size: .95rem; margin-bottom: 1.2rem; }
-    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .stat { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 1.6rem 1.4rem; transition: box-shadow .3s, transform .3s; }
-    .stat:hover { box-shadow: 0 12px 30px rgba(26,24,20,.08); transform: translateY(-3px); }
-    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: var(--accent); line-height: 1; }
-    .stat-label { font-size: .72rem; color: var(--muted); margin-top: .4rem; }
-    .timeline { display: flex; flex-direction: column; }
-    .timeline-item { display: grid; grid-template-columns: 150px 1fr; gap: 2.5rem; position: relative; padding-bottom: 3rem; }
-    .timeline-item:last-child { padding-bottom: 0; }
-    .timeline-item::before { content: ''; position: absolute; left: 150px; top: 8px; bottom: 0; width: 1px; background: var(--line); transform: translateX(calc(2.5rem / 2)); }
-    .timeline-item:last-child::before { display: none; }
-    .timeline-date { font-size: .75rem; font-weight: 500; color: var(--muted); letter-spacing: .06em; padding-top: .2rem; text-align: right; }
-    .timeline-dot { position: absolute; left: 150px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent2); border: 2px solid var(--bg); transform: translateX(calc(2.5rem / 2 - 4px)); z-index: 1; }
-    .timeline-body { padding-left: 1.8rem; }
-    .timeline-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; margin-bottom: .25rem; }
-    .timeline-body .company { font-size: .75rem; color: var(--accent2); font-weight: 500; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .75rem; }
-    .timeline-body p { color: var(--ink2); font-size: .88rem; line-height: 1.9; }
-    .skills-bg { background: var(--bg2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; }
-    .skill-group { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 2rem; transition: transform .3s, box-shadow .3s; }
-    .skill-group:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,24,20,.08); }
-    .skill-group-title { font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent2); margin-bottom: 1.2rem; padding-bottom: .8rem; border-bottom: 1px solid var(--line); }
-    .skill-list { display: flex; flex-direction: column; gap: .65rem; }
-    .skill-item { display: flex; align-items: center; justify-content: space-between; }
-    .skill-name { font-size: .85rem; color: var(--ink2); }
-    .skill-bar-wrap { width: 80px; height: 4px; background: var(--bg2); border-radius: 4px; overflow: hidden; }
-    .skill-bar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 4px; }
+    .section-wrap { max-width: 1200px; margin: 0 auto; padding: 8rem 5vw; }
+    .section-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+    .section-label::before { content: ""; width: 40px; height: 2px; background: var(--accent); }
+    .section-label span { font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); }
+    .section-title { font-family: "Bebas Neue", sans-serif; font-size: clamp(3rem, 6vw, 5.5rem); line-height: .95; margin-bottom: 4rem; }
+
+    /* ABOUT */
+    .about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-photo { width: 100%; border-radius: 12px; display: block; filter: grayscale(15%) contrast(1.05); }
+    .about-img-badge { position: absolute; bottom: -1.5rem; right: -1.5rem; background: var(--accent); color: white; padding: 1.5rem; border-radius: 10px; text-align: center; }
+    .about-img-badge .num { font-family: "Bebas Neue", sans-serif; font-size: 3rem; line-height: 1; }
+    .about-img-badge .lbl { font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; opacity: .9; }
+    .about-text p { color: var(--muted); line-height: 2; font-size: .97rem; margin-bottom: 1.4rem; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem; }
+    .astat { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.5rem; border-left: 3px solid var(--accent); }
+    .astat-num { font-family: "Bebas Neue", sans-serif; font-size: 2.4rem; color: var(--accent); line-height: 1; }
+    .astat-lbl { font-size: .72rem; color: var(--muted); margin-top: .3rem; letter-spacing: .05em; }
+
+    /* EXPERIENCE */
+    .exp-bg { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .titem { display: grid; grid-template-columns: 180px 1fr; gap: 3rem; position: relative; padding-bottom: 3.5rem; }
+    .titem:last-child { padding-bottom: 0; }
+    .titem::after { content: ""; position: absolute; left: 180px; top: 10px; bottom: 0; width: 1px; background: var(--line); transform: translateX(calc(3rem / 2)); }
+    .titem:last-child::after { display: none; }
+    .titem-dot { position: absolute; left: 180px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); transform: translateX(calc(3rem / 2 - 5px)); z-index: 1; }
+    .titem-date { font-size: .75rem; color: var(--muted); text-align: right; padding-top: .3rem; letter-spacing: .05em; }
+    .titem-body { padding-left: 2rem; }
+    .titem-body h3 { font-family: "Bebas Neue", sans-serif; font-size: 1.6rem; letter-spacing: .04em; margin-bottom: .2rem; }
+    .titem-company { font-size: .75rem; color: var(--accent); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .9rem; }
+    .titem-body p { color: var(--muted); font-size: .9rem; line-height: 1.9; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .sgroup { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 2rem; transition: border-color .3s, transform .3s; }
+    .sgroup:hover { border-color: var(--accent); transform: translateY(-5px); }
+    .sgroup-title { font-size: .68rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.4rem; padding-bottom: .8rem; border-bottom: 1px solid var(--line); }
+    .slist { display: flex; flex-direction: column; gap: .7rem; }
+    .sitem { display: flex; align-items: center; justify-content: space-between; }
+    .sname { font-size: .88rem; color: var(--muted); }
+    .sbar-wrap { width: 80px; height: 3px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
+    .sbar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 3px; }
+
+    /* EXTRAS */
     .extras-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
-    .extra-card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 2rem; }
-    .extra-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; }
+    .xcard { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 2rem; }
+    .xcard h3 { font-family: "Bebas Neue", sans-serif; font-size: 1.4rem; letter-spacing: .04em; margin-bottom: 1rem; }
     .pill-list { display: flex; flex-wrap: wrap; gap: .5rem; }
-    .pill { background: var(--bg2); border: 1px solid var(--line); border-radius: 100px; padding: .3rem .9rem; font-size: .75rem; color: var(--ink2); }
-    .pill.gold { background: rgba(200,151,74,.12); border-color: rgba(200,151,74,.3); color: #a0702a; }
-    .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .edu-card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 2.2rem; position: relative; overflow: hidden; transition: transform .3s, box-shadow .3s; }
-    .edu-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,24,20,.08); }
-    .edu-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
-    .edu-year { font-size: .7rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--accent2); margin-bottom: .8rem; }
-    .edu-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; margin-bottom: .4rem; }
-    .edu-card .school { font-size: .82rem; color: var(--muted); margin-bottom: .6rem; }
-    .edu-card .gpa { font-size: .78rem; font-weight: 500; color: var(--accent); }
-    .edu-note { font-size: .78rem; color: var(--ink2); margin-top: .5rem; line-height: 1.6; }
-    .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    .contact-info h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 300; margin-bottom: 1rem; line-height: 1.2; }
-    .contact-info p { color: var(--ink2); line-height: 1.9; margin-bottom: 2rem; font-size: .95rem; }
-    .contact-detail { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
-    .contact-detail .ico { width: 38px; height: 38px; border-radius: 9px; background: var(--bg2); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-    .contact-detail div { font-size: .85rem; }
-    .contact-detail div span { display: block; color: var(--muted); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; }
-    .contact-detail a { color: var(--ink2); text-decoration: none; transition: color .2s; }
-    .contact-detail a:hover { color: var(--accent2); }
-    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-field { display: flex; flex-direction: column; gap: .4rem; }
-    .form-field label { font-size: .68rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-    .form-field input, .form-field textarea { background: var(--white); border: 1px solid var(--line); border-radius: 6px; padding: .88rem 1rem; font-family: 'Outfit', sans-serif; font-size: .88rem; color: var(--ink); outline: none; transition: border-color .25s; resize: vertical; }
-    .form-field input:focus, .form-field textarea:focus { border-color: var(--accent); }
-    .form-field textarea { min-height: 120px; }
-    footer { border-top: 1px solid var(--line); padding: 2.2rem 5vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .76rem; color: var(--muted); }
-    footer a { color: var(--accent2); text-decoration: none; }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes slideDown { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .pill { background: var(--surface2); border: 1px solid var(--line); border-radius: 100px; padding: .3rem .9rem; font-size: .73rem; color: var(--muted); }
+    .pill.hot { background: rgba(224,92,58,.15); border-color: rgba(224,92,58,.4); color: var(--accent); }
+
+    /* EDUCATION */
+    .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .ecard { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 2.2rem; position: relative; overflow: hidden; transition: transform .3s, border-color .3s; }
+    .ecard:hover { transform: translateY(-5px); border-color: var(--accent); }
+    .ecard::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+    .eyear { font-size: .68rem; color: var(--accent); font-weight: 700; letter-spacing: .15em; text-transform: uppercase; margin-bottom: .8rem; }
+    .ecard h3 { font-family: "Bebas Neue", sans-serif; font-size: 1.3rem; letter-spacing: .04em; margin-bottom: .4rem; }
+    .eschool { font-size: .8rem; color: var(--muted); margin-bottom: .5rem; }
+    .egpa { font-size: .78rem; color: var(--accent2); font-weight: 600; }
+    .enote { font-size: .76rem; color: var(--muted); margin-top: .5rem; line-height: 1.6; }
+
+    /* CONTACT */
+    .contact-bg { background: var(--surface); border-top: 1px solid var(--line); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    .contact-big { font-family: "Bebas Neue", sans-serif; font-size: clamp(3.5rem, 6vw, 6rem); line-height: .95; margin-bottom: 2rem; }
+    .contact-big span { color: var(--accent); }
+    .contact-sub { color: var(--muted); font-size: .97rem; line-height: 1.9; margin-bottom: 2.5rem; }
+    .cdetail { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
+    .cico { width: 42px; height: 42px; background: var(--surface2); border: 1px solid var(--line); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .cdetail div { font-size: .85rem; }
+    .cdetail div em { display: block; font-style: normal; font-size: .65rem; color: var(--muted); letter-spacing: .12em; text-transform: uppercase; }
+    .cdetail a { color: var(--ink); text-decoration: none; transition: color .2s; }
+    .cdetail a:hover { color: var(--accent); }
+    .cform { display: flex; flex-direction: column; gap: 1rem; }
+    .crow { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .cfield { display: flex; flex-direction: column; gap: .4rem; }
+    .cfield label { font-size: .65rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+    .cfield input, .cfield textarea { background: var(--surface2); border: 1px solid var(--line); border-radius: 6px; padding: .9rem 1rem; font-family: "DM Sans", sans-serif; font-size: .9rem; color: var(--ink); outline: none; transition: border-color .25s; resize: vertical; }
+    .cfield input:focus, .cfield textarea:focus { border-color: var(--accent); }
+    .cfield textarea { min-height: 130px; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--line); padding: 2rem 5vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .75rem; color: var(--muted); }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes spin { to { transform: rotate(405deg); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; padding-top: 7rem; text-align: center; }
-      .hero-eyebrow { justify-content: center; }
-      .hero-desc { margin: 0 auto 2rem; }
-      .hero-btns { justify-content: center; }
-      .hero-right { display: none; }
-      .about-grid, .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
-      .timeline-item { grid-template-columns: 1fr; gap: .5rem; }
-      .timeline-item::before, .timeline-dot { display: none; }
-      .timeline-body { padding-left: 0; }
-      .timeline-date { text-align: left; }
-      .form-row, .extras-grid { grid-template-columns: 1fr; }
+
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { height: 50vh; }
+      .hero-left { padding: 8rem 5vw 4rem; text-align: center; }
+      .hero-tag, .hero-btns, .social-bar { justify-content: center; }
+      .hero-sub { margin: 0 auto 2.5rem; }
+      .about-wrap, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .skills-grid, .edu-grid { grid-template-columns: 1fr 1fr; }
+      .extras-grid, .crow { grid-template-columns: 1fr; }
+      .titem { grid-template-columns: 1fr; gap: .5rem; }
+      .titem::after, .titem-dot { display: none; }
+      .titem-body { padding-left: 0; }
+      .titem-date { text-align: left; }
+    }
+    @media (max-width: 600px) {
+      .skills-grid, .edu-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
 <nav>
-  <div class="nav-name">Cong Hieu <span>Tran</span></div>
+  <div class="nav-logo">H.</div>
   <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ul>
+  <a href="#contact" class="nav-cta">Contact</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
+  <div class="bg-geo bg-geo-1"></div>
+  <div class="bg-geo bg-geo-2"></div>
+
   <div class="hero-left">
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-line"></div>
-      <span>Economics · Data Science · Leadership</span>
+    <div class="hero-tag">
+      <div class="hero-tag-dot"></div>
+      <span>Economic Data Science &bull; Prague</span>
     </div>
-    <h1>Cong Hieu<br><strong>Tran</strong><br><em>— Portfolio</em></h1>
-    <div class="hero-title">BSc Economic Data Science · Prague University of Economics</div>
-    <p class="hero-desc">Multilingual economist and data scientist based in Prague. Passionate about leveraging data to drive meaningful decisions, with a track record in research, social impact, and leadership across international environments.</p>
+    <h1>CONG<br>HIEU<br><span class="accent">TRAN.</span></h1>
+    <p class="hero-sub">Multilingual economist &amp; data scientist. Turning complex data into meaningful decisions across international environments.</p>
+    <div class="hero-contacts">
+      <div class="hero-contact-line"><span>P:</span>+420 725 869 360</div>
+      <div class="hero-contact-line"><span>E:</span>htrancong188@gmail.com</div>
+    </div>
     <div class="hero-btns">
-      <a href="#contact" class="btn btn-dark">Get In Touch</a>
-      <a href="https://www.linkedin.com/in/hieu-tran-cong-25ba063bb/" target="_blank" class="btn btn-ghost">LinkedIn</a>
-      <a href="https://github.com/tch-Teutonic" target="_blank" class="btn btn-ghost">GitHub</a>
+      <a href="#experience" class="btn btn-accent">View Experience</a>
+      <a href="https://www.linkedin.com/in/hieu-tran-cong-25ba063bb/" target="_blank" class="btn btn-outline">LinkedIn</a>
+    </div>
+    <div class="social-bar">
+      <a href="https://www.linkedin.com/in/hieu-tran-cong-25ba063bb/" target="_blank">LI</a>
+      <a href="https://github.com/tch-Teutonic" target="_blank">GH</a>
+      <a href="mailto:htrancong188@gmail.com">ML</a>
     </div>
   </div>
+
   <div class="hero-right">
-    <div class="profile-card">
-      <div class="profile-avatar">HT</div>
-      <h3>Cong Hieu Tran</h3>
-      <div class="role">Economic Data Science · Prague, CZ</div>
-      <div class="profile-tags">
-        <span class="tag">Python</span><span class="tag">R</span><span class="tag">SQL</span>
-        <span class="tag">Machine Learning</span><span class="tag">IELTS 7.5</span><span class="tag">German C1</span>
-      </div>
-      <div class="profile-links">
-        <a href="mailto:htrancong188@gmail.com" class="profile-link"><div class="icon">&#x2709;&#xFE0F;</div>htrancong188@gmail.com</a>
-        <a href="https://www.linkedin.com/in/hieu-tran-cong-25ba063bb/" target="_blank" class="profile-link"><div class="icon">&#x1F517;</div>linkedin.com/in/hieu-tran-cong</a>
-        <a href="https://github.com/tch-Teutonic" target="_blank" class="profile-link"><div class="icon">&#x1F4BB;</div>github.com/tch-Teutonic</a>
-        <span class="profile-link"><div class="icon">&#x1F4CD;</div>Prague 2, Prague, 128 00</span>
-      </div>
+    
+    <div class="hero-stat">
+      <div class="hero-stat-num">1.7</div>
+      <div class="hero-stat-lbl">University GPA<br>Top 9 / 57</div>
     </div>
+    <div class="hero-role-badge">BSc Economic Data Science</div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="about-bg" id="about">
+<section id="about">
   <div class="section-wrap">
-    <div class="section-header reveal">
-      <div class="section-kicker"><span>About Me</span></div>
-      <h2>Who I <strong>Am</strong></h2>
-    </div>
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p>I am Cong Hieu Tran, a Bachelor's student in Economic Data Science at Prague University of Economics and Business, currently ranked 9th out of 57 in my cohort with a GPA of 1.7. I combine a rigorous academic foundation with real-world experience in research, social entrepreneurship, and data-driven analysis.</p>
-        <p>My academic journey took me from Hanoi — where I won a Gold Medal at IENA 2022 in Nuremberg for my CO&#x2082; adsorption research — to Prague, where I continue to push boundaries in data science and economics. I thrive at the intersection of analytical thinking and human impact.</p>
-        <p>With fluency in Vietnamese, German (C1), and English (C1), I bring a truly international perspective to every project I engage with.</p>
-        <a href="https://github.com/tch-Teutonic" target="_blank" class="btn btn-dark" style="margin-top:1.5rem;display:inline-block;">View GitHub</a>
+    <div class="about-wrap">
+      <div class="about-img-wrap reveal">
+        
+        <div class="about-img-badge">
+          <div class="num">&#x1F947;</div>
+          <div class="lbl">IENA 2022<br>Gold Medal</div>
+        </div>
       </div>
-      <div class="about-stats reveal">
-        <div class="stat"><div class="stat-num">1.7</div><div class="stat-label">University GPA &mdash; Top 9 of 57</div></div>
-        <div class="stat"><div class="stat-num">&#x1F947;</div><div class="stat-label">Gold Medal IENA 2022, Germany</div></div>
-        <div class="stat"><div class="stat-num">4</div><div class="stat-label">Languages spoken</div></div>
-        <div class="stat"><div class="stat-num">7.5</div><div class="stat-label">IELTS Score</div></div>
+      <div class="about-text reveal">
+        <div class="section-label"><span>About Me</span></div>
+        <div class="section-title">ECONOMIST.<br>DATA SCIENTIST.<br><span style="color:var(--accent)">LEADER.</span></div>
+        <p>I am Cong Hieu Tran, a Bachelor&rsquo;s student in Economic Data Science at Prague University of Economics and Business, ranked 9th out of 57 with a GPA of 1.7. I combine rigorous academic foundations with real-world experience in research, social entrepreneurship, and data-driven analysis.</p>
+        <p>My journey spans from Hanoi &mdash; where I won a Gold Medal at IENA 2022 in Nuremberg for CO&#x2082; adsorption research &mdash; to Prague, where I currently work as a Student Service Desk Analyst at Deutsche B&ouml;rse Group while continuing my studies.</p>
+        <div class="about-stats">
+          <div class="astat"><div class="astat-num">4</div><div class="astat-lbl">Languages Spoken</div></div>
+          <div class="astat"><div class="astat-num">7.5</div><div class="astat-lbl">IELTS Score</div></div>
+          <div class="astat"><div class="astat-num">3+</div><div class="astat-lbl">Social Projects Led</div></div>
+          <div class="astat"><div class="astat-num">5th</div><div class="astat-lbl">Biz Sim Cup 2025</div></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
+<section class="exp-bg" id="experience">
   <div class="section-wrap">
-    <div class="section-header reveal">
-      <div class="section-kicker"><span>Experience</span></div>
-      <h2>My Professional <strong>Journey</strong></h2>
-    </div>
+    <div class="section-label reveal"><span>Experience</span></div>
+    <div class="section-title reveal">PROFESSIONAL<br><span style="color:var(--accent)">JOURNEY.</span></div>
     <div class="timeline">
 
-      <div class="timeline-item reveal">
-        <div class="timeline-date">Jun 2025 &ndash; Mar 2026</div>
-        <div class="timeline-dot"></div>
-        <div class="timeline-body">
-          <h3>Server &amp; Bartender</h3>
-          <div class="company">Nam&ndash;Viet Kitchen &middot; Prague, Czech Republic</div>
-          <p>Part-time server and bartender at a Vietnamese restaurant in Prague, developing customer service, multitasking, and communication skills in a fast-paced international environment.</p>
+      <div class="titem reveal">
+        <div class="titem-date">Jun 2025 &ndash; Present</div>
+        <div class="titem-dot"></div>
+        <div class="titem-body">
+          <h3>Student Service Desk Analyst</h3>
+          <div class="titem-company">Deutsche B&ouml;rse Group &middot; Prague, Czech Republic</div>
+          <p>Working as a Student Service Desk Analyst at one of Europe&rsquo;s leading financial market infrastructure providers. Providing first-line IT support and service management to internal stakeholders, handling incident resolution, ticket management, and user support across enterprise systems. Gaining exposure to financial technology operations and corporate IT infrastructure within a globally regulated environment, developing strong analytical problem-solving and communication skills in a fast-paced professional setting.</p>
         </div>
       </div>
 
-      <div class="timeline-item reveal">
-        <div class="timeline-date">Apr 2024 &ndash; Sep 2024</div>
-        <div class="timeline-dot"></div>
-        <div class="timeline-body">
-          <h3>Co-founder &mdash; Gen 3.0</h3>
-          <div class="company">L&#7863;ng Project &middot; Vietnam</div>
-          <p>Co-founded a psychological support initiative helping individuals with mental health challenges. Led multiple departments including Subject, Public Relations, HR, External Relations, and Finance. Analyzed emotional health data of student groups and organized charitable events at orphanages in Ho Chi Minh City.</p>
+      <div class="titem reveal">
+        <div class="titem-date">Apr 2024 &ndash; Sep 2024</div>
+        <div class="titem-dot"></div>
+        <div class="titem-body">
+          <h3>Co-Founder &mdash; Gen 3.0</h3>
+          <div class="titem-company">L&#7863;ng Project &middot; Vietnam</div>
+          <p>Co-founded a psychological support initiative to help individuals facing mental health challenges. Led multiple departments simultaneously &mdash; Subject, Public Relations, HR, External Relations, and Finance. Worked with data to analyze the emotional health of student groups and organized charitable events at orphanages in Ho Chi Minh City, directly impacting hundreds of beneficiaries.</p>
         </div>
       </div>
 
-      <div class="timeline-item reveal">
-        <div class="timeline-date">Aug 2023 &ndash; Jul 2024</div>
-        <div class="timeline-dot"></div>
-        <div class="timeline-body">
+      <div class="titem reveal">
+        <div class="titem-date">Aug 2023 &ndash; Jul 2024</div>
+        <div class="titem-dot"></div>
+        <div class="titem-body">
           <h3>Public Relations Member</h3>
-          <div class="company">History of Everyone CSP &middot; Vietnam</div>
-          <p>Media staff and PR data analyst for a History Club with 21,000 followers. Optimized content strategy to broaden reach and engagement. Contributed to the success of the CSP Model United Nations, which grew to 1,400 followers.</p>
+          <div class="titem-company">History of Everyone CSP &middot; Vietnam</div>
+          <p>Media staff and PR data analyst for a History Club with 21,000 followers. Crafted and optimized content strategy to broaden reach and engagement. Contributed to the success of the CSP Model United Nations, which grew to 1,400 followers under the campaign.</p>
         </div>
       </div>
 
-      <div class="timeline-item reveal">
-        <div class="timeline-date">Oct 2022 &ndash; Aug 2023</div>
-        <div class="timeline-dot"></div>
-        <div class="timeline-body">
+      <div class="titem reveal">
+        <div class="titem-date">Oct 2022 &ndash; Aug 2023</div>
+        <div class="titem-dot"></div>
+        <div class="titem-body">
           <h3>Head Organizer</h3>
-          <div class="company">V&#431;&#416;N Project &middot; Vietnam</div>
-          <p>Led a charitable initiative providing students in mountainous regions with essential equipment and books, funded through homemade goods sales. Managed logistics, social media outreach, school location scouting, and shipping operations. Analyzed sales preference data to optimize product performance.</p>
+          <div class="titem-company">V&#431;&#416;N Project &middot; Vietnam</div>
+          <p>Led a charitable initiative providing students in mountainous regions with essential equipment and books, funded through homemade goods sales. Managed full operations including logistics, social media outreach, school location scouting, and shipping. Analyzed sales preference data to optimize product performance and reach.</p>
         </div>
       </div>
 
@@ -265,71 +312,65 @@
 </section>
 
 <!-- SKILLS -->
-<section class="skills-bg" id="skills">
+<section id="skills">
   <div class="section-wrap">
-    <div class="section-header reveal">
-      <div class="section-kicker"><span>Skills</span></div>
-      <h2>What I <strong>Bring</strong></h2>
-    </div>
+    <div class="section-label reveal"><span>Skills</span></div>
+    <div class="section-title reveal">WHAT I<br><span style="color:var(--accent)">BRING.</span></div>
     <div class="skills-grid">
-      <div class="skill-group reveal">
-        <div class="skill-group-title">Technical Skills</div>
-        <div class="skill-list">
-          <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">R</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">SQL</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">Machine Learning</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">Excel &amp; PowerPoint</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
+      <div class="sgroup reveal">
+        <div class="sgroup-title">Technical</div>
+        <div class="slist">
+          <div class="sitem"><span class="sname">Python</span><div class="sbar-wrap"><div class="sbar" style="width:85%"></div></div></div>
+          <div class="sitem"><span class="sname">R</span><div class="sbar-wrap"><div class="sbar" style="width:82%"></div></div></div>
+          <div class="sitem"><span class="sname">SQL</span><div class="sbar-wrap"><div class="sbar" style="width:80%"></div></div></div>
+          <div class="sitem"><span class="sname">Machine Learning</span><div class="sbar-wrap"><div class="sbar" style="width:75%"></div></div></div>
+          <div class="sitem"><span class="sname">Excel &amp; PowerPoint</span><div class="sbar-wrap"><div class="sbar" style="width:90%"></div></div></div>
         </div>
       </div>
-      <div class="skill-group reveal">
-        <div class="skill-group-title">Languages</div>
-        <div class="skill-list">
-          <div class="skill-item"><span class="skill-name">Vietnamese (Native)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:100%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">German (C1)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">English (C1)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">Polish (A1)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:20%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">Czech (A1)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:20%"></div></div></div>
+      <div class="sgroup reveal">
+        <div class="sgroup-title">Languages</div>
+        <div class="slist">
+          <div class="sitem"><span class="sname">Vietnamese (Native)</span><div class="sbar-wrap"><div class="sbar" style="width:100%"></div></div></div>
+          <div class="sitem"><span class="sname">German (C1)</span><div class="sbar-wrap"><div class="sbar" style="width:88%"></div></div></div>
+          <div class="sitem"><span class="sname">English (C1)</span><div class="sbar-wrap"><div class="sbar" style="width:88%"></div></div></div>
+          <div class="sitem"><span class="sname">Polish (A1)</span><div class="sbar-wrap"><div class="sbar" style="width:20%"></div></div></div>
+          <div class="sitem"><span class="sname">Czech (A1)</span><div class="sbar-wrap"><div class="sbar" style="width:20%"></div></div></div>
         </div>
       </div>
-      <div class="skill-group reveal">
-        <div class="skill-group-title">Professional Skills</div>
-        <div class="skill-list">
-          <div class="skill-item"><span class="skill-name">Leadership</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">Data Analysis</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">Public Relations</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">Project Management</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+      <div class="sgroup reveal">
+        <div class="sgroup-title">Professional</div>
+        <div class="slist">
+          <div class="sitem"><span class="sname">Leadership</span><div class="sbar-wrap"><div class="sbar" style="width:88%"></div></div></div>
+          <div class="sitem"><span class="sname">Data Analysis</span><div class="sbar-wrap"><div class="sbar" style="width:85%"></div></div></div>
+          <div class="sitem"><span class="sname">IT Service Desk</span><div class="sbar-wrap"><div class="sbar" style="width:78%"></div></div></div>
+          <div class="sitem"><span class="sname">Project Management</span><div class="sbar-wrap"><div class="sbar" style="width:82%"></div></div></div>
         </div>
       </div>
     </div>
-
     <div class="extras-grid">
-      <div class="extra-card reveal">
+      <div class="xcard reveal">
         <h3>Certificates &amp; Awards</h3>
         <div class="pill-list">
-          <span class="pill gold">&#x1F947; Gold Medal &mdash; IENA 2022, Nuremberg</span>
-          <span class="pill gold">&#x1F3C6; Ranked 5th &mdash; Biz Sim Cup 2025</span>
+          <span class="pill hot">&#x1F947; Gold Medal &mdash; IENA 2022, Nuremberg</span>
+          <span class="pill hot">&#x1F3C6; Ranked 5th &mdash; Biz Sim Cup 2025</span>
           <span class="pill">Supervised Learning with scikit-learn</span>
           <span class="pill">Data Preparation in Excel</span>
           <span class="pill">IELTS 7.5</span>
           <span class="pill">MOS PowerPoint</span>
         </div>
       </div>
-      <div class="extra-card reveal">
+      <div class="xcard reveal">
         <h3>Research</h3>
         <div class="pill-list">
-          <span class="pill gold">Mesoporous silica CO&#x2082; adsorbent &mdash; IENA Gold</span>
+          <span class="pill hot">Mesoporous silica CO&#x2082; adsorbent &mdash; IENA Gold</span>
           <span class="pill">Walmart analysis &mdash; Machine Learning</span>
           <span class="pill">Human Rights Analysis &mdash; R &amp; SQL</span>
         </div>
         <h3 style="margin-top:1.4rem;margin-bottom:.8rem;">Interests</h3>
         <div class="pill-list">
-          <span class="pill">&#x26BD; Football</span>
-          <span class="pill">&#x1F6F6; Kayaking</span>
-          <span class="pill">&#x26F3; Golf</span>
-          <span class="pill">&#x1F3D3; Table Tennis</span>
-          <span class="pill">&#x1F3CE;&#xFE0F; Formula 1</span>
-          <span class="pill">&#x1F4DC; History</span>
+          <span class="pill">&#x26BD; Football</span><span class="pill">&#x1F6F6; Kayaking</span>
+          <span class="pill">&#x26F3; Golf</span><span class="pill">&#x1F3D3; Table Tennis</span>
+          <span class="pill">&#x1F3CE;&#xFE0F; Formula 1</span><span class="pill">&#x1F4DC; History</span>
         </div>
       </div>
     </div>
@@ -337,74 +378,57 @@
 </section>
 
 <!-- EDUCATION -->
-<section id="education">
+<section class="exp-bg" id="education">
   <div class="section-wrap">
-    <div class="section-header reveal">
-      <div class="section-kicker"><span>Education</span></div>
-      <h2>Academic <strong>Background</strong></h2>
-    </div>
+    <div class="section-label reveal"><span>Education</span></div>
+    <div class="section-title reveal">ACADEMIC<br><span style="color:var(--accent)">BACKGROUND.</span></div>
     <div class="edu-grid">
-      <div class="edu-card reveal">
-        <div class="edu-year">Sep 2025 &ndash; Jul 2028</div>
+      <div class="ecard reveal">
+        <div class="eyear">Sep 2025 &ndash; Jul 2028</div>
         <h3>BSc Economic Data Science</h3>
-        <div class="school">Prague University of Economics and Business &middot; Czech Republic</div>
-        <div class="gpa">GPA 1.7 &mdash; Ranked 9th / 57</div>
-        <div class="edu-note">Group Leader &middot; Ranked 5th in university round, Biz Sim Cup 2025</div>
+        <div class="eschool">Prague University of Economics and Business &middot; Czech Republic</div>
+        <div class="egpa">GPA 1.7 &mdash; Ranked 9th / 57</div>
+        <div class="enote">Group Leader &middot; Ranked 5th, Biz Sim Cup 2025</div>
       </div>
-      <div class="edu-card reveal">
-        <div class="edu-year">Jan 2023 &ndash; May 2024</div>
+      <div class="ecard reveal">
+        <div class="eyear">Jan 2023 &ndash; May 2024</div>
         <h3>International Baccalaureate</h3>
-        <div class="school">Perott Hill International School &middot; Prague, Czech Republic</div>
-        <div class="gpa">GPA 1.4</div>
+        <div class="eschool">Perott Hill International School &middot; Prague, Czech Republic</div>
+        <div class="egpa">GPA 1.4</div>
       </div>
-      <div class="edu-card reveal">
-        <div class="edu-year">Sep 2021 &ndash; Jan 2023</div>
+      <div class="ecard reveal">
+        <div class="eyear">Sep 2021 &ndash; Jan 2023</div>
         <h3>Gifted High School Programme</h3>
-        <div class="school">Chu Van An Ha Noi High School for the Gifted &middot; Hanoi, Vietnam</div>
-        <div class="gpa">GPA 9.1 / 10</div>
-        <div class="edu-note">&#x1F947; Gold Medal IENA 2022, Nuremberg &middot; Member of German Language Olympiad Team</div>
+        <div class="eschool">Chu Van An Ha Noi High School for the Gifted &middot; Hanoi, Vietnam</div>
+        <div class="egpa">GPA 9.1 / 10</div>
+        <div class="enote">&#x1F947; Gold Medal IENA 2022, Nuremberg &middot; German Language Olympiad Team</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section style="background:var(--bg2);border-top:1px solid var(--line);" id="contact">
+<section class="contact-bg" id="contact">
   <div class="section-wrap">
-    <div class="contact-wrap">
-      <div class="contact-info reveal">
-        <div class="section-kicker"><span>Contact</span></div>
-        <h2>Let's Connect &amp;<br><strong>Work Together</strong></h2>
-        <p>Whether you have an opportunity, a research collaboration, or just want to say hello &mdash; feel free to reach out.</p>
-        <div class="contact-detail">
-          <div class="ico">&#x2709;&#xFE0F;</div>
-          <div><span>Email</span><a href="mailto:htrancong188@gmail.com">htrancong188@gmail.com</a></div>
-        </div>
-        <div class="contact-detail">
-          <div class="ico">&#x1F4DE;</div>
-          <div><span>Phone</span><a href="tel:+420725869360">+420 725 869 360</a></div>
-        </div>
-        <div class="contact-detail">
-          <div class="ico">&#x1F517;</div>
-          <div><span>LinkedIn</span><a href="https://www.linkedin.com/in/hieu-tran-cong-25ba063bb/" target="_blank">hieu-tran-cong</a></div>
-        </div>
-        <div class="contact-detail">
-          <div class="ico">&#x1F4BB;</div>
-          <div><span>GitHub</span><a href="https://github.com/tch-Teutonic" target="_blank">tch-Teutonic</a></div>
-        </div>
-        <div class="contact-detail">
-          <div class="ico">&#x1F4CD;</div>
-          <div><span>Location</span>Prague 2, Prague, 128 00</div>
-        </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="section-label"><span>Contact</span></div>
+        <div class="contact-big">ANY QUERY<br>&amp; <span>DISCUSSION.</span></div>
+        <p class="contact-sub">Whether you have an opportunity, a research collaboration, or just want to connect &mdash; my inbox is always open.</p>
+        <div class="cdetail"><div class="cico">&#x2709;&#xFE0F;</div><div><em>Email</em><a href="mailto:htrancong188@gmail.com">htrancong188@gmail.com</a></div></div>
+        <div class="cdetail"><div class="cico">&#x1F4DE;</div><div><em>Phone</em><a href="tel:+420725869360">+420 725 869 360</a></div></div>
+        <div class="cdetail"><div class="cico">&#x1F517;</div><div><em>LinkedIn</em><a href="https://www.linkedin.com/in/hieu-tran-cong-25ba063bb/" target="_blank">hieu-tran-cong</a></div></div>
+        <div class="cdetail"><div class="cico">&#x1F4BB;</div><div><em>GitHub</em><a href="https://github.com/tch-Teutonic" target="_blank">tch-Teutonic</a></div></div>
+        <div class="cdetail"><div class="cico">&#x1F4CD;</div><div><em>Location</em>Prague 2, Prague, 128 00</div></div>
       </div>
-      <div class="contact-form reveal">
-        <div class="form-row">
-          <div class="form-field"><label>First Name</label><input type="text" placeholder="John"/></div>
-          <div class="form-field"><label>Last Name</label><input type="text" placeholder="Doe"/></div>
+      <div class="cform reveal">
+        <div class="crow">
+          <div class="cfield"><label>First Name</label><input type="text" placeholder="John"/></div>
+          <div class="cfield"><label>Last Name</label><input type="text" placeholder="Doe"/></div>
         </div>
-        <div class="form-field"><label>Email</label><input type="email" placeholder="john@example.com"/></div>
-        <div class="form-field"><label>Message</label><textarea placeholder="Write your message here..."></textarea></div>
-        <button class="btn btn-dark" style="align-self:flex-start;">Send Message &#x2192;</button>
+        <div class="cfield"><label>Email</label><input type="email" placeholder="john@example.com"/></div>
+        <div class="cfield"><label>Message</label><textarea placeholder="Write your message here..."></textarea></div>
+        <button class="btn btn-accent" style="align-self:flex-start;">Send Message &#x2192;</button>
       </div>
     </div>
   </div>
@@ -420,10 +444,29 @@
 </footer>
 
 <script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  // Custom cursor
+  const cursor = document.getElementById("cursor");
+  const ring = document.getElementById("cursorRing");
+  document.addEventListener("mousemove", e => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+    setTimeout(() => { ring.style.left = e.clientX + "px"; ring.style.top = e.clientY + "px"; }, 80);
+  });
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+
+  // Active nav
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-links a");
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
+    navLinks.forEach(a => { a.classList.toggle("active", a.getAttribute("href") === "#" + current); });
+  });
 </script>
 </body>
 </html>

@@ -1,0 +1,23 @@
+{
+  "name": "demo-website-teutonic",
+  "version": "1.0.0",
+  "description": "Portfolio website for Cong Hieu Tran with Vercel Speed Insights",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tch-Teutonic/demo-website-teutonic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tch-Teutonic/demo-website-teutonic/issues"
+  },
+  "homepage": "https://github.com/tch-Teutonic/demo-website-teutonic#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
